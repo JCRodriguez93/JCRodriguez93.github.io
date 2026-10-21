@@ -35,7 +35,7 @@ Cada proyecto y cada post-mortem se define una sola vez en su fichero de la cole
 
 ## Publicación
 
-El sitio se publica con GitHub Pages: hacer push a `main` y Pages recompila (Settings → Pages → Deploy from a branch → `main` / carpeta `/ (root)`).
+El sitio se publica con GitHub Pages vía el workflow de Actions (`.github/workflows/pages.yml`): cada push a `master` compila el sitio con Jekyll y lo despliega. La primera publicación requiere que en Settings → Pages el Source esté en "GitHub Actions".
 
 ## Contacto
 
