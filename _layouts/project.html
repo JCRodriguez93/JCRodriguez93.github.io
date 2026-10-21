@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<article class="project-detail">
+  <header class="project-detail__header">
+    <a class="back-link" href="{{ '/' | relative_url }}#proyectos">← Volver a proyectos</a>
+    <span class="badge">{{ page.tipo }}</span>
+    <h1 class="project-detail__title">{{ page.title }}</h1>
+    <p class="project-detail__resumen">{{ page.resumen }}</p>
+    {% if page.stack %}
+    <ul class="tech-tags">
+      {% for tech in page.stack %}
+        <li class="tech-tag">{{ tech }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="project-detail__links">
+      {% if page.repo and page.repo != "" %}
+        <a class="btn btn--primary btn--sm" href="{{ page.repo }}" target="_blank" rel="noopener">Ver código ↗</a>
+      {% endif %}
+      {% if page.demo and page.demo != "" %}
+        <a class="btn btn--ghost btn--sm" href="{{ page.demo }}" target="_blank" rel="noopener">Demo ↗</a>
+      {% endif %}
+      {% if page.contrato and page.contrato != "" %}
+        <a class="btn btn--ghost btn--sm" href="{{ page.contrato }}" target="_blank" rel="noopener">Contrato OpenAPI ↗</a>
+      {% endif %}
+    </div>
+  </header>
+  {% if page.media and page.media.src %}
+  <figure class="project-detail__media">
+    <img src="{{ page.media.src | relative_url }}" alt="{{ page.media.alt | default: page.title }}" loading="lazy">
+    {% if page.media.caption %}
+      <figcaption>{{ page.media.caption }}</figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

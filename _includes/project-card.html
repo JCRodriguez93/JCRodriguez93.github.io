@@ -1,0 +1,29 @@
+{%- assign p = include.project -%}
+<article class="project-card">
+  <div class="project-card__top">
+    <span class="badge">{{ p.tipo }}</span>
+  </div>
+  <h3 class="project-card__title">
+    <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+  </h3>
+  <p class="project-card__resumen" title="{{ p.resumen }}">{{ p.resumen | truncatewords: 22, " (...)" }}</p>
+  {% if p.stack %}
+  <ul class="tech-tags">
+    {% for tech in p.stack %}
+      <li class="tech-tag">{{ tech }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <div class="project-card__links">
+    {% if p.repo and p.repo != "" %}
+      <a href="{{ p.repo }}" target="_blank" rel="noopener">Repo ↗</a>
+    {% endif %}
+    {% if p.demo and p.demo != "" %}
+      <a href="{{ p.demo }}" target="_blank" rel="noopener">Demo ↗</a>
+    {% endif %}
+    {% if p.contrato and p.contrato != "" %}
+      <a href="{{ p.contrato }}" target="_blank" rel="noopener">Contrato ↗</a>
+    {% endif %}
+    <a class="project-card__more" href="{{ p.url | relative_url }}">Ver detalle →</a>
+  </div>
+</article>

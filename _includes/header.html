@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="{{ '/' | relative_url }}">
+      {{ site.author.name }}<span class="site-header__role">· Java Backend</span>
+    </a>
+    <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir o cerrar el menú">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
+      {% for item in site.data.navigation %}
+        {%- assign item_path = item.url | split: '#' | first -%}
+        {%- assign is_current = false -%}
+        {%- if item_path == '/' -%}
+          {%- if page.url == '/' -%}{%- assign is_current = true -%}{%- endif -%}
+        {%- elsif page.url == item_path or page.url contains item_path -%}
+          {%- assign is_current = true -%}
+        {%- endif -%}
+        <a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+      <a class="site-nav--external" href="{{ site.author.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>

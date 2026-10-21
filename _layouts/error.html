@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article class="project-detail">
+  <header class="project-detail__header">
+    <a class="back-link" href="{{ '/errores/' | relative_url }}">← Volver a errores</a>
+    {% if page.proyecto %}
+      <span class="badge">{{ page.proyecto }}</span>
+    {% endif %}
+    <h1 class="project-detail__title">{{ page.title }}</h1>
+    {% if page.resumen %}
+      <p class="project-detail__resumen">{{ page.resumen }}</p>
+    {% endif %}
+    {% if page.proyecto %}
+      <div class="project-detail__links">
+        <a class="btn btn--ghost btn--sm" href="{{ '/proyectos/' | append: page.proyecto | append: '/' | relative_url }}">Ver proyecto →</a>
+      </div>
+    {% endif %}
+  </header>
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

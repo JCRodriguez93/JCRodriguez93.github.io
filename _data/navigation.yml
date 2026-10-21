@@ -1,0 +1,12 @@
+- label: Proyectos
+  url: /#proyectos
+- label: Sobre mí
+  url: /sobre-mi/
+- label: Formación
+  url: /formacion/
+- label: Metodología
+  url: /metodologia/
+- label: Errores
+  url: /errores/
+- label: Contacto
+  url: /contacto/

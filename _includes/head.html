@@ -1,0 +1,32 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- if page.title -%}
+    {%- assign page_title = page.title | append: " · " | append: site.title -%}
+  {%- else -%}
+    {%- assign page_title = site.title | append: " — Junior Java Developer" -%}
+  {%- endif -%}
+  <title>{{ page_title }}</title>
+
+  {%- if page.resumen -%}
+    {%- assign page_desc = page.resumen -%}
+  {%- elsif page.description -%}
+    {%- assign page_desc = page.description -%}
+  {%- else -%}
+    {%- assign page_desc = site.description -%}
+  {%- endif -%}
+  <meta name="description" content="{{ page_desc }}">
+  <meta name="author" content="{{ site.author.name }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_desc }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+
+  <meta name="theme-color" content="#0d1117">
+  <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>

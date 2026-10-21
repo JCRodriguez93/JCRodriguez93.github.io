@@ -1,0 +1,73 @@
+# ─────────────────────────────────────────────────────────────
+#  CONFIGURACIÓN DEL PORTFOLIO
+#  Editar: title, description, author (nombre, email, redes)
+# ─────────────────────────────────────────────────────────────
+
+title: "Jorge Campos Rodriguez"
+description: >-
+  Junior Java Developer. Backend robusto con Spring Boot: monolitos modulares,
+  microservicios y procesos batch. Enfoque contract-first.
+lang: es
+
+author:
+  name: "Jorge Campos Rodriguez"
+  email: "jorgecampos_open2work@protonmail.com"
+  github: "https://github.com/JCRodriguez93"
+  linkedin: "https://www.linkedin.com/in/jorge-campos-rodriguez/"
+  location: "Extremadura, España"
+
+# Dominio de despliegue (GitHub Pages: "https://JCRodriguez93.github.io")
+url: ""
+baseurl: ""
+
+# ─────────────────────────────────────────────────────────────
+#  COLECCIÓN DE PROYECTOS — fuente única de verdad.
+#  Cada archivo en _projects/ sigue este CONTRATO de front matter
+#  (obligatorio para que la landing y las páginas se generen):
+#
+#    title:     string          (obligatorio) nombre del proyecto
+#    tipo:      string          (obligatorio) "Monolito modular" |
+#                          "Microservicios" | "Batch (Spring Batch)"
+#    orden:     int             (obligatorio) posición en la landing
+#    resumen:   string          (obligatorio) el problema en una línea
+#    stack:     [string]        (obligatorio) 4-6 tecnologías reales
+#    repo:      url | ""        (opcional)     código fuente
+#    demo:      url | ""        (opcional)     demo desplegada
+#    contrato:  url | ""        (opcional)     especificación OpenAPI
+#    media:     {src, alt, caption}  (opcional) imagen o GIF de cabecera
+# ─────────────────────────────────────────────────────────────
+#  COLECCIÓN DE ERRORES (post-mortems) — escalable por proyecto.
+#  Cada archivo en _errores/ documenta qué se rompió en UN proyecto.
+#  El nombre del fichero debe coincidir con el slug del proyecto al
+#  que pertenece (para que el enlace "Ver proyecto" resuelva a
+#  /proyectos/<slug>/). URL: /errores/<slug>/
+#
+#    title:     string          (obligatorio) título del post-mortem
+#    resumen:   string          (obligatorio) qué se rompió, en una línea
+#    proyecto:  string          (obligatorio) slug del proyecto afectado
+# ─────────────────────────────────────────────────────────────
+
+collections:
+  projects:
+    output: true
+    permalink: /proyectos/:name/
+  errores:
+    output: true
+    permalink: /errores/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+  - scope:
+      path: ""
+      type: errores
+    values:
+      layout: error
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
